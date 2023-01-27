@@ -1,0 +1,15 @@
+html{
+    font-size: 100%;
+}
+
+body{
+    background-color: #212121;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: white; 
+}
+
+.moondance{
+    font-family: 'Moon Dance', cursive;
+    text-align: center;
+}
