@@ -3,13 +3,38 @@ html{
 }
 
 body{
-    background-color: #212121;
+    background-color: black;
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
-    color: white; 
+    color: white;
+
 }
 
-.moondance{
+.divI{
+    width: 80%;
+    margin: 50px auto 0px auto;
+    text-align:center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.divIi{
+    display: grid;
+    align-items: center;
+    justify-content: center left;
+    
+
+}
+
+.srujan{
     font-family: 'Moon Dance', cursive;
-    text-align: center;
+    font-size: 100px;
+}
+
+.vinland{
+    font-size: 1.75em;
+}
+
+.stimag{
+    height: auto;
+    width: 100%
 }
