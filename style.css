@@ -20,9 +20,10 @@ body{
 .divIi{
     display: grid;
     align-items: center;
-    justify-content: center left;
-    
-
+    justify-content: right;
+}
+.divIiI{
+    padding-right: 20px;
 }
 
 .srujan{
@@ -37,4 +38,7 @@ body{
 .stimag{
     height: auto;
     width: 100%
+}
+.bu{
+    text-decoration: underline #14FFEC 5px;
 }
