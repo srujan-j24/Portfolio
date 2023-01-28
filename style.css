@@ -12,10 +12,15 @@ body{
 
 .divI{
     width: 80%;
-    margin: 50px auto 0px auto;
+    margin: 140px auto 0px 0px;
     text-align:center;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-right: solid;
+    border-bottom: double;
+    border-color: #14FFEC; 
+    border-width: 10px;
+    padding-right: 20px;
 }
 .divIi{
     display: grid;
@@ -41,4 +46,18 @@ body{
 }
 .bu{
     text-decoration: underline #14FFEC 5px;
+}
+
+.divII{
+    width: 80%;
+    margin: 200px 0px 0px auto;
+    border-bottom: double;
+    border-left: solid;
+    border-color: #14FFEC;
+    border-width: 10px;
+    padding-left: 20px;
+}
+
+.iconn{
+    size: 400px
 }
