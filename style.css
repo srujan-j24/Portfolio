@@ -68,7 +68,10 @@ body{
 }
 
 .divIIi{
-    background-color: #212121;
-     text-align: center;
+    position: relative;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    text-align: center;
     border-radius: 10px;
+    padding-top: 12.5%;
+    padding-bottom: 12.5%;
 }
