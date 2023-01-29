@@ -56,8 +56,19 @@ body{
     border-color: #14FFEC;
     border-width: 10px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
-.iconn{
-    size: 400px
+
+.gridIII{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 15px;
+    gap: 15px   ;
+}
+
+.divIIi{
+    background-color: #212121;
+     text-align: center;
+    border-radius: 10px;
 }
