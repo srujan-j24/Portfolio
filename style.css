@@ -72,6 +72,33 @@ body{
     background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
     text-align: center;
     border-radius: 10px;
-    padding-top: 12.5%;
-    padding-bottom: 12.5%;
+    padding-top: 15.5%;
+    padding-bottom: 15.5%;
+}
+
+.iconn{
+    object-fit: contain;
+    width: 50%;
+    opacity: 1 ;
+    transition: 1s ease;
+}
+
+.divIIii{
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.divIIi:hover .iconn{
+    opacity: 0.02;
+    transform: scale(1.35);
+    
+    
+}
+
+.divIIi:hover .divIIii{
+    opacity: 1;
 }
