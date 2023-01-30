@@ -10,9 +10,30 @@ body{
 
 }
 
+.logodiv{
+    height: 140px;
+    width: 100%;
+    top: calc((100vh - 140px)/2); 
+    position: fixed;
+    align-items: center;
+}
+
+.logodivI{
+    width: 140px;
+    margin: 0 auto 0 auto;
+}
+.logo{
+    width: calc(100vw * 0.1);
+    transition: 2s;
+}
+
+.logodiv:hover .logo{
+    transform: rotate(180deg);
+}
+
 .divI{
     width: 80%;
-    margin: 140px auto 0px 0px;
+    margin: calc(100vh) auto 0px 0px;
     text-align:center;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -46,6 +67,10 @@ body{
 }
 .bu{
     text-decoration: underline #14FFEC 5px;
+}
+
+.bu:hover .bu{
+    content: "v";
 }
 
 .divII{
