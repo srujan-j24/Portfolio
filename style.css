@@ -2,6 +2,7 @@ html{
     font-size: 100%;
 }
 
+
 body{
     background-color: black;
     margin: 0px;
@@ -29,8 +30,8 @@ h1{
     transition: 2s;
 }
 
-.logodiv:hover .logo{
-    transform: rotate(180deg);
+.logodivI:hover .logo{
+    transform: rotate(360deg);
 }
 
 .divI{
@@ -63,36 +64,55 @@ h1{
     font-size: calc(100vw * 0.02);
 }
 
+
+.bu[data-tool-tip]{
+    text-decoration: underline #14FFEC;
+    position: relative;
+}
+
+.bu[data-tool-tip]::after{
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background: black;
+    text-decoration: underline #14FFEC;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity ease-out 0.7s, left ease-out 0.7s;
+    
+}
+
+.bu[data-tool-tip]:hover::after{
+    opacity: 1 ;
+}
+
+
 .stimag{
     height: auto;
     width: 100%;  
 }
-.bu{
-    text-decoration: underline #14FFEC calc(100vw * 0.004);
-}
-
-.bu:hover .bu{
-    content: "v";
-}
-
 .divII{
     width: 80%;
+    position: relative;
     margin: 200px 0px 0px auto;
     border-bottom: double;
     border-left: solid;
     border-color: #14FFEC;
     border-width: calc(100vw * 0.007);
     padding-left: calc(100vw * 0.014);
-
     padding-right: calc(100vw * 0.014);
 }
+
 
 
 .gridIII{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding-bottom: 15px;
-    gap: 15px   ;
+    gap: 15px;
+    isolation: isolate;
 }
 
 .divIIi{
