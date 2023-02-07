@@ -24,10 +24,14 @@ h1{
     width: calc(100vw * 0.1);
     height: calc(100vw * 0.1);
     margin: 0 auto 0 auto;
+    background-image: "llogo.svg";
 }
 .logo{
     width: calc(100vw * 0.1);
     transition: 2s;
+}
+.circ{
+    
 }
 
 .logodivI:hover .logo{
