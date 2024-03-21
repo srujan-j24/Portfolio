@@ -1,0 +1,47 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	--background-color: #121212;
+	--color: snow;
+	color: var(--color);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+}
+body{
+	margin: 0;
+	&::-webkit-scrollbar{
+		display: none;
+	}
+	header{
+		background-color: var(--background-color);
+		position:fixed;
+		width: 100vw;
+		top: 0;
+		height: 10vh;
+		border-bottom: 1px solid snow;
+		#logo-cont{
+
+		}
+		nav{
+
+			a{
+
+			}
+		}
+
+	}
+	section{
+		height: 100vh;
+		background-color: #121212;
+	}
+	#sec-1{
+		box-sizing: border-box;
+		padding-block-start: 10vh;
+		display: flex;
+	}
+
+}
