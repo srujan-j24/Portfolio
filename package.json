@@ -13,6 +13,7 @@
     "vite": "^5.1.6"
   },
   "dependencies": {
-    "animejs": "^3.2.2"
+    "animejs": "^3.2.2",
+    "http-server": "^14.1.1"
   }
 }

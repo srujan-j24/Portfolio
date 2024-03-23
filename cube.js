@@ -1,4 +1,5 @@
 import anime from "animejs";
+
 export function setCube(element){
     let root = document.documentElement;
     

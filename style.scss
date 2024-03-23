@@ -4,13 +4,24 @@
 	font-weight: 400;
 	--background-color: #121212;
 	--color: snow;
+	--h-line-width: 0;
+	--mouse-x: 5vw;
+	--h-line-pos-x: calc(var(--mouse-x) - var(--h-line-width) / 2);
+	--h-line-pos-y: 0px;
+	--h-line-time-x: 1s;
+	--h-line-time-y: 1s;
+	--h-line-grd-pos: 50%;
+	--h-line-color: #fff;
 	color: var(--color);
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	
+	animation: fas 1s;
 }
+
+
+
 body{
 	margin: 0;
 	&::-webkit-scrollbar{
@@ -19,19 +30,73 @@ body{
 	header{
 		background-color: var(--background-color);
 		position:fixed;
+		box-sizing: border-box;
 		width: 100vw;
-		top: 0;
 		height: 10vh;
-		border-bottom: 1px solid snow;
-		#logo-cont{
-
-		}
-		nav{
-
-			a{
-
+		top: 0;
+		display: flex;
+		flex-direction: row-reverse;
+		padding-inline: 3.5rem;
+		justify-content: space-between;
+		transition: translateY 1s ease-in-out;
+		#h-line-cont{
+			position:absolute;
+			display: flex;
+			width: 100%;
+			bottom: 0px;
+			height: 1px;
+			left: 0px;
+			#h-line-wrapper{
+				width: var(--h-line-width);
+				position: relative;
+				transform: translateX(var(--h-line-pos-x));
+				transition: all var(--h-line-time-x);
+				&::after{
+					content: "";
+					height: var(--h-line-pos-y);
+					width: 100%;
+					position: absolute;
+					top: calc(var(--h-line-pos-y) * -1);
+					background-color: var(--background-color);
+					transition: all var(--h-line-time-y);
+				}
+				#h-line{
+					position: absolute;
+					z-index: 99;
+					bottom: var(--h-line-pos-y);
+					left: 0;
+					height: 1px;
+					width: 100%;
+					
+					background-image: linear-gradient(90deg, #121212 0%, var(--h-line-color) var(--h-line-grd-pos)	 , #121212 100%);
+					transition: all var(--h-line-time-y);
+				}
 			}
 		}
+		#logo-cont{
+			height: 10vh;
+			display: flex;
+			align-items: center;
+			img{
+				height: 8vh;
+			}
+		}
+		nav{
+			display: flex;
+			gap: 4.5rem;
+			align-items: center;
+			font-weight: 600;
+			a{
+				text-decoration: none;
+				color: var(--color);
+				font-size:x-large;
+			}
+			
+		}
+		.hidden-nav-li{
+			opacity: 0;
+		}
+		
 
 	}
 	section{
@@ -42,6 +107,15 @@ body{
 		box-sizing: border-box;
 		padding-block-start: 10vh;
 		display: flex;
+		#hero{
+			flex-grow: 1;
+			display: grid;
+			grid-template-columns: 50% 50%;
+		}
+
+	}
+	section:nth-of-type(2n){
+		background-color: snow;
 	}
 
 }
