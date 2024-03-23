@@ -1,5 +1,6 @@
 export function initHLine(prop){
     let rootStyle = prop.root.style;
+    let attachToGradient = true;
     console.log(prop.navItems)
 
     function varyGradient(dir, ms){
@@ -65,37 +66,44 @@ export function initHLine(prop){
             resolve();
         })
     }
-    function attachMouse(){
-        document.addEventListener("mousemove", (e)=>{
-            let x = e.clientX;
+    function gradientAttachMouse(e){
+        let x = e.clientX;
+        if(attachToGradient){
             rootStyle.setProperty("--h-line-grd-pos", `${x / window.innerWidth * 100}%`)
-        })
+        }else{
+            rootStyle.setProperty('--mouse-x', `${x}px`)
+        }
     }
+
     function addHoverEffect(){
-        console.log(prop.navItems);
+        let hover_timeout;
         for(let item of prop.navItems){
             item.addEventListener("mouseover", ()=>{
+                clearInterval(hover_timeout);
+                attachToGradient = false;
+                rootStyle.setProperty("--h-line-grd-pos", '50%')
                 let itemRect = item.getBoundingClientRect();
                 let itemWidth = itemRect.width * 2;
-                setWidth(`${itemRect}px`, 200)
-                setPositionX(calcNextPos(item), 200);
+                setWidth(`${itemWidth}px`, 500)
+                setPositionX(calcNextPos(item), 500);
             });
             item.addEventListener("mouseout", ()=>{
-                setWidth(`100vw`, 200);
-                setPositionX('50vw', 200);
+                hover_timeout = setTimeout(()=>{
+                    attachToGradient = true;
+                    setWidth(`100vw`, 200);
+                    setPositionX('50vw', 200);
+                }, 1000)
             });
         }
     }
-    addHoverEffect();
     setPositionX('-10vw',100, -1)
     .then(()=>{return setWidth("10vw", 100)})
     .then(()=>{return setPositionX("5vw",2000, 1)})
-    .then(()=>{return setPositionX("95vw",2000, 1)})
-    .then(()=>{return setPositionX("5vw", 2000, -1)})
     .then(()=>{return showNavItems()})
     .then(()=>{return setPositionX("50vw", 500, -1)})
     .then(()=>{return setWidth('100vw', 500)})
-    .then(()=>{attachMouse();})
-
-
+    .then(()=>{
+        document.addEventListener("mousemove", gradientAttachMouse);
+        addHoverEffect();
+    })
 }
