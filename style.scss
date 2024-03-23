@@ -77,10 +77,12 @@ body{
 			height: 10vh;
 			display: flex;
 			align-items: center;
-			img{
+			
+			#logo-img{
 				height: 8vh;
 			}
 		}
+		
 		nav{
 			display: flex;
 			gap: 4.5rem;

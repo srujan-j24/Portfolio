@@ -65,7 +65,28 @@ export function initHLine(prop){
             resolve();
         })
     }
-    
+    function attachMouse(){
+        document.addEventListener("mousemove", (e)=>{
+            let x = e.clientX;
+            rootStyle.setProperty("--h-line-grd-pos", `${x / window.innerWidth * 100}%`)
+        })
+    }
+    function addHoverEffect(){
+        console.log(prop.navItems);
+        for(let item of prop.navItems){
+            item.addEventListener("mouseover", ()=>{
+                let itemRect = item.getBoundingClientRect();
+                let itemWidth = itemRect.width * 2;
+                setWidth(`${itemRect}px`, 200)
+                setPositionX(calcNextPos(item), 200);
+            });
+            item.addEventListener("mouseout", ()=>{
+                setWidth(`100vw`, 200);
+                setPositionX('50vw', 200);
+            });
+        }
+    }
+    addHoverEffect();
     setPositionX('-10vw',100, -1)
     .then(()=>{return setWidth("10vw", 100)})
     .then(()=>{return setPositionX("5vw",2000, 1)})
@@ -73,7 +94,8 @@ export function initHLine(prop){
     .then(()=>{return setPositionX("5vw", 2000, -1)})
     .then(()=>{return showNavItems()})
     .then(()=>{return setPositionX("50vw", 500, -1)})
-    .then(()=>{setWidth('100vw', 500)})
+    .then(()=>{return setWidth('100vw', 500)})
+    .then(()=>{attachMouse();})
 
 
 }
