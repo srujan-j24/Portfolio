@@ -68,9 +68,13 @@ export function initHLine(prop){
     }
     function gradientAttachMouse(e){
         let x = e.clientX;
+
         if(attachToGradient){
-            rootStyle.setProperty("--h-line-grd-pos", `${x / window.innerWidth * 100}%`)
+            let {width, x: wx} = prop.wrapper.getBoundingClientRect();
+            x -= wx;
+            rootStyle.setProperty("--h-line-grd-pos", `${x / width * 100}%`)
         }else{
+            rootStyle.setProperty('-h-line-time-x', '0ms')
             rootStyle.setProperty('--mouse-x', `${x}px`)
         }
     }
@@ -80,14 +84,20 @@ export function initHLine(prop){
         for(let item of prop.navItems){
             item.addEventListener("mouseover", ()=>{
                 clearInterval(hover_timeout);
-                attachToGradient = false;
+                attachToGradient = true;
                 rootStyle.setProperty("--h-line-grd-pos", '50%')
                 let itemRect = item.getBoundingClientRect();
                 let itemWidth = itemRect.width * 2;
                 setWidth(`${itemWidth}px`, 500)
                 setPositionX(calcNextPos(item), 500);
+                hover_timeout = setTimeout(()=>{
+                    rootStyle.setProperty("--h-line-grd-pos", '50%')
+                }, 500)
             });
             item.addEventListener("mouseout", ()=>{
+                attachToGradient = false;
+                rootStyle.setProperty("--h-line-grd-pos", '50%')
+                clearInterval(hover_timeout)
                 hover_timeout = setTimeout(()=>{
                     attachToGradient = true;
                     setWidth(`100vw`, 200);
