@@ -52,11 +52,11 @@ export function navBarInit(){
                 clearTimeout(expandTimeOut);
                 let {right, left} = element.getBoundingClientRect();
                 let ww = window.innerWidth;
-                fixGrdCorners(Math.floor(left/ww*100-2), Math.ceil(right/ww*100+2), 5);
+                fixGrdCorners(Math.floor(left/ww*100), Math.ceil(right/ww*100), 5);
             });
             element.addEventListener("mouseout", ()=>{
                 let {width} = element.getBoundingClientRect();
-                let offset = width / window.innerWidth * 100 / 2 + 2;
+                let offset = width / window.innerWidth * 100 / 2;
                 setNavVar(vGrdStart, `calc(var(${vGrdMouse}) - ${offset}%)`);
                 setNavVar(vGrdEnd, `calc(var(${vGrdMouse}) + ${offset}%)`);
                 mainOffset = offset;
@@ -79,85 +79,4 @@ export function navBarInit(){
         followMouse();
         addhoverEffect();
     })
-    
-
-
-
-
 }
-
-/*
-    Static: fixed start and fixed end just move the mid according to mouse
-        |
-        Make the transition slowly
-        |
-        V
-    OnHover: fixed start and fixed end just move the mid according to mouse
-
-
-*/
-    
-    // let curGrdStart = 0, curGrdEnd = 0;
-    // function setStyle(name, val){
-    //     prop.rootStyle.setProperty(name, val);
-    // }
-    // function followMouse(){
-    //     document.addEventListener("mousemove", (e)=>{
-    //         let x = e.clientX;
-    //         let wrapperWidth = prop.wrapper.getBoundingClientRect().width;
-    //         setStyle('--mouse-x', `${(x / wrapperWidth * 100).toFixed(2)}%`);
-    //     });
-    // }
-    // function setGradient(start, end){
-    //     let intervalGrdStart  = setInterval(()=>{
-    //         if(curGrdStart == start){
-    //             clearInterval(intervalGrdStart);
-    //         }else{
-    //             console.log("hi")
-    //             setStyle(prop.grdStart, `${++curGrdStart}%`);
-    //         }
-    //     }, 0)
-    //     let intervalGrdEnd = setInterval(()=>{
-    //         if(curGrdEnd == end){
-    //             clearInterval(intervalGrdEnd);
-    //         }else{
-    //             console.log("bi")
-    //             setStyle(prop.grdEnd, `${++curGrdEnd}%`);
-    //         }
-    //     }, 0)
-    // }
-    // setGradient(50, 50)
-    // function addHoverEffect(element){
-    //     let expandTimeOut;
-    //     for(let element of prop.navElements){
-    //         element.addEventListener("mouseover", ()=>{
-    //             // clearTimeout(expandTimeOut);
-    //             let {right,  left} = element.getBoundingClientRect();
-    //             let rightPercent =  (right / window.innerWidth * 100) + 2;
-    //             let leftPercent = (left / window.innerWidth * 100 ) - 2;
-    //             setStyle(prop.grdStart, `${leftPercent.toFixed(2)}%`);
-    //             setStyle(prop.grdEnd, `${rightPercent.toFixed(2)}%`);
-    //         });
-    //         element.addEventListener("mouseout",()=>{
-    //             let {width} = element.getBoundingClientRect();
-    //             console.log(width / window.innerWidth)
-    //             let widthPercent = (width / window.innerWidth * 100 / 2) + 2;
-    //             console.log(widthPercent);
-    //             setStyle('--mouse-x-offset',`${widthPercent}%`);
-    //             setStyle(prop.grdStart, 'var(--hl-grd-start-follow)');
-    //             setStyle(prop.grdEnd, 'var(--hl-grd-end-follow)');
-    //             // expandTimeOut = setTimeout(()=>{
-    //             //     setGradient(0, 100);
-    //             // }, 500)
-
-    //         });
-    //     }    
-    // }
-    
-
-    // followMouse();
-    // addHoverEffect();
-
-
-
-        
